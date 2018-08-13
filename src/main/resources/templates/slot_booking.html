@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+h1 {
+	text-align: center;
+}
+
+body {
+	background-image: url("3.jpg");
+	background-size: cover;
+}
+
+button, input, select, textarea {
+	 padding: 10px;
+    height: 50px;
+    font-size: 20px !important;
+
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 30px;
+    font-family: monospace;
+}
+</style>
+</head>
+<body>
+<div th:include="@{/header.html}"></div>
+	<h1><strong>Book the slot for the court</strong></h1>
+	<h1 th:text="${facility.courtName}"></h1>
+	<br>
+	<div class="container">
+		<h2><strong>Available Slots</strong></h2>
+
+		<form th:action="@{/bookCourt}" >
+			<input type="hidden" th:value="${facility.courtId}" name="idChecked"/>
+			<input type="hidden" th:value="${date}" name="date"/>
+			<input type="hidden" th:value="${userEmail}" name="userEmail"/>
+			<div class="form-group form-group-lg">
+				<label for="slotMap">Select slot (select one):</label> <select
+					name="slotMap">
+					<option th:each="slotmapping : ${slotMapping}"
+						th:value="${slotmapping.slotId.slotId}"
+						th:text="${slotmapping.slotId.slotTiming}" required ></option>
+
+
+				</select>
+				
+				<input type="submit" value="Enter"/>
+			</div>
+			</form>
+	</div>
+</body>
+</html>
+
+
+

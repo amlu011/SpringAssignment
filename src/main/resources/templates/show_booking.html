@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Booking Details</title>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+
+
+</style>
+
+</head>
+<body>
+<div th:include="@{/header.html}"></div>
+<div class="container">
+<br><br><br>
+  <h1>Hello <var th:text="${booking[0].getUser().getUserName()}"></var></h1>
+  <h3>You have made the following bookings</h3>           
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>CourtName</th>
+        <th>Date</th>
+        <th>Slot</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="booking : ${booking}">
+        <td th:text="${booking.getCourtId().getCourtName()}"></td>
+        <td th:text="${booking.getDatee()}"></td>
+        <td th:text="${booking.getSlotMapId().getSlotId().getSlotTiming()}"></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

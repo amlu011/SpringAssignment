@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<style>
+body {
+    background-color:black;
+}
+h1{
+text-align:center;
+
+}
+</style>
+
+</head>
+
+
+<body>
+<div th:include="@{/header.html}"></div>
+	<h1>Welcome <var th:text="${userName}"></var></h1>
+	<h1><strong>Enter Details for Booking</strong></h1>
+
+	<div class="container">
+		<form th:action="@{/processform}" method="post">
+		
+			<div class="form-group">
+				<label for="locality">Locality</label> <select class="form-control"
+					id="locality" name="locality">
+					<option value="hsr">HSR</option>
+					<option value="kormangala">KORMANGALA</option>
+
+				</select>
+			</div>
+			<input type="hidden" th:value="${userEmail}" name="userEmail"/>
+			<br> <br>
+			<div class="form-group">
+				<label for="game">Game:</label> <select class="form-control"
+					id="game" name="game">
+					<option value="badminton">BADMINTON</option>
+					<option value="cricket">CRICKET</option>
+
+				</select>
+				</div>
+				<br><br>
+				<div class="form-group">
+				
+				
+				</div>
+			
+			
+							
+							
+
+
+			<button type="Submit" class="btn btn-primary btn-lg">Submit</button>
+
+
+		</form>
+	</div>
+
+
+
+
+
+
+	
+
+</body>
+</html>
+
+

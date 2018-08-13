@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Enter Email</title>
+
+</head>
+<body>
+<div th:include="@{/header.html}"></div>
+<form th:action="@{/viewBooking}">
+<input type="text" name="email"/>
+<input type="submit" name="submit"/>
+
+</form>
+
+</body>
+</html>
