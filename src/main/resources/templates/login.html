@@ -12,13 +12,13 @@
 					<img src="http://1.bp.blogspot.com/-i16nKmMWiLE/TbVDn0-GExI/AAAAAAAAACQ/sS9Eed5x_GQ/s1600/istockphoto_11673975-kids-playing-sports.jpg" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" th:action="@{/form}" method = "post" th:object="${user}"  name="user">
+				<form class="login100-form validate-form" th:action="@{/loginForm}">
 					<span class="login100-form-title">
-						Member SignUp
+						Member Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="userEmail" th:field="*{userEmail}" placeholder="Email" required>
+						<input class="input100" type="text" name="userEmail"  placeholder="Email" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -26,7 +26,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="text" name="userName" th:field="*{userName}" placeholder="Name" required>
+						<input class="input100" type="text" name="userName"  placeholder="Name" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -35,7 +35,7 @@
 					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							SignUp
+							Login
 						</button>
 					</div>
 

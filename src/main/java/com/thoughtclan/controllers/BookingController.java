@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.thoughtclan.models.CourtBooking;
+import com.thoughtclan.services.CourtBookingService;
 import com.thoughtclan.services.SportsService;
 
 @Controller
@@ -16,22 +17,22 @@ public class BookingController {
 	
 	
 	@Autowired
-	private SportsService sportsService;
+	private CourtBookingService courtBookingService;
 	
 	@RequestMapping(value="/enterEmail")
 	public ModelAndView enterEmail() {
 		ModelAndView modelAndView=new ModelAndView("view_booking_form");
-		//modelAndView.addObject();
+		
 		
 		return modelAndView;
 	}
 	
 	@RequestMapping(value="/viewBooking")
 	public ModelAndView viewBooking(@RequestParam("email")String userEmail) {
-		 //booking = new CourtBooking();
 		
-		List<CourtBooking> booking=sportsService.findBooking(userEmail);
-		System.out.println(userEmail);
+		
+		List<CourtBooking> booking=courtBookingService.findBooking(userEmail);
+	
 		ModelAndView modelAndView=new ModelAndView("show_booking");
 		
 		modelAndView.addObject("booking",booking);

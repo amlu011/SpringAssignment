@@ -57,121 +57,148 @@ public class SportsService {
 
 
 
-	public List<OrganisationFacility> findCourtName(String type,String locality){
-		List<OrganisationFacility> courts =new ArrayList<>();
-
-
-		//Iterable<Organisation> allorgs = sportsRepository.findAll();
-		Iterable<OrganisationFacility> allcourts = sportsRepositoryCourt.findAll();
-
-
-		for(OrganisationFacility c:allcourts )
-		{
-			if(c.getType().equals(type) && c.getOrgId().getOrgLocality().equals(locality)&&(c.getOrgId().getOrgId()==c.getOrgId().getOrgId()))
-			{
-				
-
-				courts.add(c);
-				System.out.println(c.getCourtName());
-
-			}
-		}
-
-		return courts;
-
-	}
-
-
-
-
-
-
-	public void addUser(User user) {
-		sportsRepositoryUser.save(user);
-
-
-	}
+//	public List<OrganisationFacility> findCourtName(String type,String locality){
+//		List<OrganisationFacility> courts =new ArrayList<>();
+//
+//
+//		//Iterable<Organisation> allorgs = sportsRepository.findAll();
+//		Iterable<OrganisationFacility> allcourts = sportsRepositoryCourt.findAll();
+//
+//
+//		for(OrganisationFacility c:allcourts )
+//		{
+//			if(c.getType().equals(type) && c.getOrgId().getOrgLocality().equals(locality)&&(c.getOrgId().getOrgId()==c.getOrgId().getOrgId()))
+//			{
+//				
+//
+//				courts.add(c);
+//				
+//
+//			}
+//		}
+//
+//		return courts;
+//
+//	}
 
 
 
 
-	public OrganisationFacility findByCourtId(Integer courtId) {
 
 
-		OrganisationFacility facility=new OrganisationFacility();
-		facility=sportsRepositoryCourt.findById(courtId).get();
-		return facility;
-
-	}
-
-
-
-	public List<SlotMapping> findSlot(Integer courtId,String date){
-		OrganisationFacility courts =new OrganisationFacility();
-
-		List<SlotMapping> availableSlots=new ArrayList<>();
-		//Iterable<Organisation> allorgs = sportsRepository.findAll();
-		Iterable<OrganisationFacility> allcourts = sportsRepositoryCourt.findAll();
-
-
-		for(OrganisationFacility c:allcourts )
-		{
-			if(c.getCourtId()==courtId)
-			{
-				List<SlotMapping> allSlotList=c.getSlotMapping();
-
-				List<SlotMapping> bookedSlotsList=new ArrayList<>();
-
-
-				for(CourtBooking courtBooking:c.getCourtMap() )
-				{
-				
-					if(courtBooking.getDatee().equals(date)) {
-					bookedSlotsList.add(courtBooking.getSlotMapId());
-					}
-				}
-
-				
-				for(SlotMapping slot: allSlotList ) {
-					
-					if(!bookedSlotsList.contains(slot)) {
-
-						availableSlots.add(slot);
-
-					}
-				}
-				
-			}
-		}
-
-		return availableSlots;
-
-	}
-	public void addCourtBooking(String slotId, Integer courtId,String date,String userEmail) {
-		CourtBooking booking=new CourtBooking();
-		SlotMapping slotMap=sportsRepositorySlotMapping.findBySlotIdSlotIdAndCourtIdCourtId(slotId,courtId);
-		OrganisationFacility court=sportsRepositoryCourt.findById(courtId).get();
-		User user =sportsRepositoryUser.findById(userEmail).get();
-		booking.setCourtId(court);
-		booking.setSlotMapId(slotMap);
-		booking.setDatee(date);
-		booking.setUser(user);
-		sportsRepositoryBooking.save(booking);
-
-
-	}
+//	public boolean addUser(User user) {
+//		Iterable<User> users= sportsRepositoryUser.findAll();
+//		
+//		boolean flag=true;
+//		for(User u:users) {
+//			if(u.getUserEmail().equals(user.getUserEmail())) {
+//				flag=false;
+//			}
+//			
+//			
+//		}
+//		if(flag==true) {
+//			sportsRepositoryUser.save(user);
+//		}
+//			
+//			
+//		return flag;
+//
+//	}
+	
+//	public boolean findUser(String userEmail,String userName) {
+//		boolean flag=false;
+//		Iterable<User> users= sportsRepositoryUser.findAll();
+//		for(User u:users) {
+//			if(u.getUserEmail().equals(userEmail)) {
+//				if(u.getUserName().equals(userName)) {
+//					flag=true;
+//				}
+//			}
+//		}
+//		return flag;
+//	}
 
 
 
 
-	public List<CourtBooking> findBooking(String userEmail) {
-		System.out.println("inside method");
-		
-		List<CourtBooking> booking=sportsRepositoryBooking.findByUserUserEmail(userEmail);
-		return booking;
-		
-		
-		
-	}
+//	public OrganisationFacility findByCourtId(Integer courtId) {
+//
+//
+//		OrganisationFacility facility=new OrganisationFacility();
+//		facility=sportsRepositoryCourt.findById(courtId).get();
+//		return facility;
+//
+//	}
+
+
+
+//	public List<SlotMapping> findSlot(Integer courtId,String date){
+//		OrganisationFacility courts =new OrganisationFacility();
+//
+//		List<SlotMapping> availableSlots=new ArrayList<>();
+//		//Iterable<Organisation> allorgs = sportsRepository.findAll();
+//		Iterable<OrganisationFacility> allcourts = sportsRepositoryCourt.findAll();
+//
+//
+//		for(OrganisationFacility c:allcourts )
+//		{
+//			if(c.getCourtId()==courtId)
+//			{
+//				List<SlotMapping> allSlotList=c.getSlotMapping();
+//
+//				List<SlotMapping> bookedSlotsList=new ArrayList<>();
+//
+//
+//				for(CourtBooking courtBooking:c.getCourtMap() )
+//				{
+//				
+//					if(courtBooking.getDatee().equals(date)) {
+//					bookedSlotsList.add(courtBooking.getSlotMapId());
+//					}
+//				}
+//
+//				
+//				for(SlotMapping slot: allSlotList ) {
+//					
+//					if(!bookedSlotsList.contains(slot)) {
+//
+//						availableSlots.add(slot);
+//
+//					}
+//				}
+//				
+//			}
+//		}
+//
+//		return availableSlots;
+//
+//	}
+//	public void addCourtBooking(String slotId, Integer courtId,String date,String userEmail) {
+//		CourtBooking booking=new CourtBooking();
+//		SlotMapping slotMap=sportsRepositorySlotMapping.findBySlotIdSlotIdAndCourtIdCourtId(slotId,courtId);
+//		OrganisationFacility court=sportsRepositoryCourt.findById(courtId).get();
+//		User user =sportsRepositoryUser.findById(userEmail).get();
+//		booking.setCourtId(court);
+//		booking.setSlotMapId(slotMap);
+//		booking.setDatee(date);
+//		booking.setUser(user);
+//		sportsRepositoryBooking.save(booking);
+//
+//
+//	}
+
+
+
+
+//	public List<CourtBooking> findBooking(String userEmail) {
+//		
+//		
+//		List<CourtBooking> booking=sportsRepositoryBooking.findByUserUserEmail(userEmail);
+//		return booking;
+//		
+//		
+//		
+//	}
 
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+.center {
+   margin: auto;
+   width: 50%;
+   padding: 10px;
+}
+</style>
+</head>
+<body>
+<div th:include="@{/header.html}"></div>
+<div class="center">
+<form>
+<button th:formaction="@{/enterUser}" type="Submit" class="btn btn-primary btn-lg btn-block">SignUp</button>
+<button th:formaction="@{/enterLoginDetail}" type="Submit" class="btn btn-primary btn-lg btn-block">LogIn</button>
+
+</form>
+
+
+
+
+</div>
+</body>
+</html>

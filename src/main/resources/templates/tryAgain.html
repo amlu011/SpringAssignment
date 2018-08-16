@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+.center {
+   margin: auto;
+   width: 50%;
+   padding: 10px;
+}
+</style>
+</head>
+<body>
+
+<div th:include="@{/header.html}"></div>
+<h1>invalid email or username</h1>
+<div class="center">
+<form>
+<button th:formaction="@{/}" type="Submit" class="btn btn-primary btn-lg btn-block">SignUp/LogiN</button>
+
+
+</form>
+
+
+
+
+</div>
+</body>
+</html>
